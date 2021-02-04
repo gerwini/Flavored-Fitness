@@ -1,5 +1,62 @@
+/*-------------------------------------------------------------   Navigation bar       */
+
+.nav-link {
+    color: black !important;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.logo {
+    width: 7%;
+}
+
+.nav-item {
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.navbar {
+    font-size: 35px;
+}
+
+/*-------------------------------------------------------------   Body and Content       */
+
 .main-background {
     background-image: url('/media/FlavoredFitness.png');
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+html, body {
+    position: relative;
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+  flex: 1 0 auto;
+}
+
+/*-------------------------------------------------------------   Footer       */
+
+.page-container {
+    position: relative;
+    min-height: 93vh;
+}
+
+.content-wrap {
+    padding-bottom: 2.5rem;
+}
+
+.footer {
+    flex-shrink: 0;
+    color: rgb(236, 225, 225);
+    background-color: rgb(19, 18, 18);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin: 0px;
 }
