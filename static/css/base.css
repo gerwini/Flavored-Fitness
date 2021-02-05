@@ -19,6 +19,30 @@
     font-size: 35px;
 }
 
+.nav-back {
+    background-color: transparent;
+}
+
+/*-------------------------------------------------------------   Not logged in home page      */
+
+.info-text {
+    text-align: center;
+    background-color:rgba(255, 255, 255, 0.633);
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.signup-login {
+    text-align: center;
+    font-size: 150%;
+    transform: translateY(40%);
+}
+
+.featured-program {
+    text-align: center;
+    padding-top: 50px;
+}
+
 /*-------------------------------------------------------------   Body and Content       */
 
 .main-background {
