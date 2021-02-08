@@ -60,3 +60,9 @@ def product_info(request, product_id):
     }
 
     return render(request, 'products/product_info.html', context)
+
+
+def view_purchase(request):
+    """ A view that renders the purchase page """
+
+    return render(request, 'products/purchase.html')
