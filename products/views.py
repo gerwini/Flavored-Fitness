@@ -66,3 +66,16 @@ def view_purchase(request):
     """ A view that renders the purchase page """
 
     return render(request, 'products/purchase.html')
+
+
+def add_for_purchase(request, item_id):
+    """ Add a product for purchase """
+
+    redirect_url = request.POST.get('redirect_url')
+    bag = request.session.get('bag', {})
+
+    bag[item_id]
+
+    request.session['bag'] = bag
+    print(request.session['bag'])
+    return redirect(redirect_url)
