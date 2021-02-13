@@ -71,11 +71,15 @@ def view_purchase(request):
 def add_for_purchase(request, item_id):
     """ Add a product for purchase """
 
+    quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
-    bag = request.session.get('bag', {})
+    purchase = request.session.get('purchase', {})
 
-    bag[item_id]
+    if item_id in list(purchase.keys()):
+        purchase[item_id] += quantity
+    else:
+        purchase[item_id] = quantity
 
-    request.session['bag'] = bag
-    print(request.session['bag'])
+    request.session['purchase'] = purchase
+    print(request.session['purchase'])
     return redirect(redirect_url)
