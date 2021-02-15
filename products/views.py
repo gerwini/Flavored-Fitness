@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
 from django.contrib import messages
 from django.db.models import Q
 from .models import Product
@@ -81,5 +81,34 @@ def add_for_purchase(request, item_id):
         purchase[item_id] = quantity
 
     request.session['purchase'] = purchase
-    print(request.session['purchase'])
     return redirect(redirect_url)
+
+
+def modify_purchase(request, item_id):
+    """ modify product for purchase """
+
+    quantity = int(request.POST.get('quantity'))
+    purchase = request.session.get('purchase', {})
+
+    if quantity > 0:
+        purchase[item_id] = quantity
+    else:
+        purchase.pop(item_id)
+
+    request.session['purchase'] = purchase
+    return redirect(reverse('view_purchase'))
+
+
+def remove_product(request, item_id):
+    """ modify product for purchase """
+
+    purchase = request.session.get('purchase', {})
+
+    try:
+        purchase.pop(item_id)
+
+        request.session['purchase'] = purchase
+        return HttpResponse(status=200)
+
+    except Exception as e:
+        return HttpResponse(status=500)
