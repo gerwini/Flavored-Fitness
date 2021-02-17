@@ -71,14 +71,17 @@ def view_purchase(request):
 def add_for_purchase(request, item_id):
     """ Add a product for purchase """
 
+    product = Product.objects.get(pk=item_id)
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
     purchase = request.session.get('purchase', {})
 
     if item_id in list(purchase.keys()):
         purchase[item_id] += quantity
+        messages.success(request, f'Increased the quantity of {product.name} to {purchase[item_id]}!')
     else:
         purchase[item_id] = quantity
+        messages.success(request, f'Added {product.name} to your list!')
 
     request.session['purchase'] = purchase
     return redirect(redirect_url)
@@ -87,12 +90,15 @@ def add_for_purchase(request, item_id):
 def modify_purchase(request, item_id):
     """ modify product for purchase """
 
+    product = Product.objects.get(pk=item_id)
     quantity = int(request.POST.get('quantity'))
     purchase = request.session.get('purchase', {})
 
     if quantity > 0:
         purchase[item_id] = quantity
+        messages.success(request, f'Changed the quantity of {product.name} to {purchase[item_id]}')
     else:
+        messages.success(request, f'Removed {product.name} from your list!')
         purchase.pop(item_id)
 
     request.session['purchase'] = purchase
@@ -100,12 +106,14 @@ def modify_purchase(request, item_id):
 
 
 def remove_product(request, item_id):
-    """ modify product for purchase """
+    """ remove product from purchase list """
 
+    product = Product.objects.get(pk=item_id)
     purchase = request.session.get('purchase', {})
 
     try:
         purchase.pop(item_id)
+        messages.success(request, f'Removed {product.name} from your list!')
 
         request.session['purchase'] = purchase
         return HttpResponse(status=200)
