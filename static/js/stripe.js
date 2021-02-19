@@ -54,9 +54,6 @@ form.addEventListener('submit', function(ev) {
     $('#payment-form').fadeToggle(100);
     $('#loading-overlay').fadeToggle(100);
 
-    console.log("stripe public key from JS: ", stripePublicKey);
-    console.log("stripe client secret from JS: ", clientSecret);
-
     var saveInfo = Boolean($('#id-save-info').attr('checked'));
     // From using {% csrf_token %} in the form
     var csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
