@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'profiles',
     'forum',
     'crispy_forms',
+    'pybb',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -60,6 +61,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'pybb.middleware.PybbMiddleware',
 ]
 
 ROOT_URLCONF = 'flavored_fitness.urls'
@@ -81,6 +83,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'products.contexts.purchase_content',
+                'pybb.context_processors.processor',
             ],
             'builtins': [
                 'crispy_forms.templatetags.crispy_forms_tags',
