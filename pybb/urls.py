@@ -28,9 +28,8 @@ urlpatterns = [
 urlpatterns += [
     # Index, Category, Forum
     url('^$', IndexView.as_view(), name='index'),
-    path('', views.IndexView, name='index'),
-    url('^category/(?P<pk>\d+)/$', CategoryView.as_view(), name='category'),
-    url('^forum/(?P<pk>\d+)/$', ForumView.as_view(), name='forum'),
+    url(r'^category/(?P<pk>\d+)/$', CategoryView.as_view(), name='category'),
+    url(r'^forum/(?P<pk>\d+)/$', ForumView.as_view(), name='forum'),
 
     # User
     url('^users/(?P<username>[^/]+)/$', UserView.as_view(), name='user'),

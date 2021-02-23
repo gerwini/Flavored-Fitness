@@ -53,7 +53,7 @@
                                 <a class="nav-link" href="{% url 'home' %}">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{% url 'index' %}">Forum</a>
+                                <a class="nav-link" href="{% url 'pybb:index' %}">Forum</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Recipes</a>
@@ -94,6 +94,9 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'pybb:forum' %}">Forum</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{% url 'store' %}">Store</a>
