@@ -3,6 +3,9 @@
 from __future__ import unicode_literals
 
 from django.conf.urls import url
+from django.urls import path
+
+from . import views
 
 from pybb.defaults import PYBB_NICE_URL
 from pybb.feeds import LastPosts, LastTopics
@@ -25,6 +28,7 @@ urlpatterns = [
 urlpatterns += [
     # Index, Category, Forum
     url('^$', IndexView.as_view(), name='index'),
+    path('', views.IndexView, name='index'),
     url('^category/(?P<pk>\d+)/$', CategoryView.as_view(), name='category'),
     url('^forum/(?P<pk>\d+)/$', ForumView.as_view(), name='forum'),
 

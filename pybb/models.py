@@ -7,7 +7,7 @@ try:
 except ImportError:
     from django.urls import reverse
 from django.db import models, transaction, DatabaseError
-from django.utils.encoding import python_2_unicode_compatible
+from six import python_2_unicode_compatible
 from django.utils.functional import cached_property
 from django.utils.html import strip_tags
 from django.utils.translation import ugettext_lazy as _
@@ -62,7 +62,7 @@ class Forum(models.Model):
     name = models.CharField(_('Name'), max_length=80)
     position = models.IntegerField(_('Position'), blank=True, default=0)
     description = models.TextField(_('Description'), blank=True)
-    moderators = models.ManyToManyField(get_user_model_path(), blank=True, verbose_name=_('Moderators'))
+    moderators = models.ManyToManyField(get_user_model_path(), blank=True, related_name='moderators_forum', verbose_name=_('Moderators'))
     updated = models.DateTimeField(_('Updated'), blank=True, null=True)
     post_count = models.IntegerField(_('Post count'), blank=True, default=0)
     topic_count = models.IntegerField(_('Topic count'), blank=True, default=0)
