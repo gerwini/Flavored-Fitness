@@ -1,0 +1,1 @@
+web: gunicorn flavored_fitness.wsgi:application
