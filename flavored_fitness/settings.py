@@ -27,8 +27,7 @@ SECRET_KEY = '*kcdv8$v9hrf)o9aww0_1a8a$+4o&3#ty(an77)ogr=97$15fz'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['gerwini-flavored-fitness.herokuapp.com', 'localhost']
-
+ALLOWED_HOSTS = ['flavored-fitness.herokuapp.com', 'localhost']
 
 # Application definition
 
@@ -104,8 +103,6 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 SITE_ID = 1
-
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 ACCOUNT_EMAIL_REQUIRED = True
