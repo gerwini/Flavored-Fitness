@@ -25,6 +25,5 @@ urlpatterns = [
     path('store/', include('products.urls')),
     path('checkout/', include('checkout.urls')),
     path('profile/', include('profiles.urls')),
-    # path('forumss/', include('forum.urls')),
     path(r'^forum/', include('pybb.urls', namespace='pybb')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
