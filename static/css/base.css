@@ -52,6 +52,27 @@ html,body
     padding-top: 50px;
 }
 
+/*-------------------------------------------------------------   forum page      */
+
+div.form-control {
+    height: auto !important;
+    padding: 0px;
+}
+
+textarea {
+    width: 100%;
+}
+
+input {
+    width: 100%;
+}
+
+select {
+    width: 100%;
+}
+
+
+
 /*-------------------------------------------------------------   Store Page      */
 
 .btn-outline-black {
@@ -70,6 +91,10 @@ html,body
 .update-link,
 .remove-item {
     cursor: pointer;
+}
+
+.product-store {
+    border: 1px solid rgb(0, 0, 0);
 }
 
 /*-------------------------------------------------------------   Checkout and Stripe     */
@@ -162,6 +187,13 @@ body {
 
 .content {
   flex: 1 0 auto;
+}
+
+.forum-back {
+    background-color: white !important;
+    border: 50px solid rgba(0, 0, 0, 0.2);
+    background-clip: padding-box;
+    border-radius: 15px;
 }
 
 /*-------------------------------------------------------------   Toasts       */
