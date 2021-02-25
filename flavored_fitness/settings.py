@@ -49,6 +49,8 @@ INSTALLED_APPS = [
     'crispy_forms',
     'pybb',
     'storages',
+    'recipes',
+    'programs',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
