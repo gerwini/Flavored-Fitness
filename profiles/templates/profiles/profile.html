@@ -75,3 +75,9 @@
     <script src="{% static 'js/country_profile.js' %}"></script>
 {% endblock %}
 </div>
+
+
+curl https://api.stripe.com/v1/billing_portal/sessions \
+  -u sk_test_51IMImlHxJIGwDmwOA1jAU8gTbHsgGxnhU9NulHodVGHd6jnvAfJtbx14W8c0HwXC0br0KZvbH6U7a94l8g16826X00uCF6Tkd8: \
+  -d "customer"="{{ gerwin }}" \
+  -d "return_url"="https://example.com/account"
