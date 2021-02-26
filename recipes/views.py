@@ -1,6 +1,12 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
-from django.contrib import messages
+from django.shortcuts import render
+from .models import Recipe
 
 
 def view_recipes(request):
-    return render(request, 'recipes/recipes.html')
+    recipes = Recipe.objects.all()
+
+    context = {
+        'recipes': recipes,
+    }
+
+    return render(request, 'recipes/recipes.html', context)
