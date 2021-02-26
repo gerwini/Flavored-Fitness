@@ -1,6 +1,6 @@
 from django import forms
 from .widgets import CustomClearableFileInput
-from .models import Recipe, Category
+from .models import Recipe
 
 
 class RecipeForm(forms.ModelForm):
