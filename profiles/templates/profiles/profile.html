@@ -8,13 +8,14 @@
         <div class="row">
             <div class="col">
                 <hr>
-                <h2 class="logo-font mb-4">My Profile</h2>
+                <div>
+                    <h2 class="logo-font mb-4">My Profile</h2>
+                    <form method="POST" action="/create-customer-portal-session">
+                        <button type="submit">Manage billing</button>
+                    </form>
+                </div>
                 <hr>
             </div>
-            <h1>{{ target_profile.get_display_name }}</h1>
-                <div class="userinfo">
-                {% include 'pybb/avatar.html' with user=target_user %}
-                </div>
         </div>
         <div class="row">
             <div class="col-12 col-lg-6">
