@@ -1,4 +1,5 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, reverse, redirect, get_object_or_404
+from django.contrib import messages
 from .models import Recipe
 from .forms import RecipeForm
 from django.contrib.auth.decorators import login_required
@@ -17,7 +18,7 @@ def view_recipes(request):
 
 def recipe_info(request, recipe_id):
 
-    recipes = get_object_or_404(recipe, pk=recipe_id)
+    recipes = get_object_or_404(Recipe, pk=recipe_id)
 
     context = {
         'recipe': recipes,
@@ -57,7 +58,7 @@ def edit_recipe(request, recipe_id):
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
 
-    recipe = get_object_or_404(recipe, pk=recipe_id)
+    recipe = get_object_or_404(Recipe, pk=recipe_id)
     if request.method == 'POST':
         form = RecipeForm(request.POST, request.FILES, instance=recipe)
         if form.is_valid():
@@ -81,12 +82,12 @@ def edit_recipe(request, recipe_id):
 
 @login_required
 def delete_recipe(request, recipe_id):
-    """ Delete a recipe from the store """
+    """ Delete a recipe from the Recipe List """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
 
-    recipe = get_object_or_404(recipe, pk=recipe_id)
+    recipe = get_object_or_404(Recipe, pk=recipe_id)
     recipe.delete()
     messages.success(request, 'recipe deleted!')
-    return redirect(reverse('store'))
+    return redirect(reverse('recipes'))

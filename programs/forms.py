@@ -1,12 +1,12 @@
 from django import forms
 from .widgets import CustomClearableFileInput
-from .models import Recipe
+from .models import Program
 
 
-class RecipeForm(forms.ModelForm):
+class ProgramForm(forms.ModelForm):
 
     class Meta:
-        model = Recipe
+        model = Program
         fields = '__all__'
 
     image = forms.ImageField(label='Image', required=False, widget=CustomClearableFileInput)
