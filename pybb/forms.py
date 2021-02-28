@@ -384,51 +384,6 @@ class PollForm(forms.Form):
             return answers
 
 
-class ForumSubscriptionForm(forms.Form):
-    def __init__(self, user, forum, instance=None, *args, **kwargs):
-        super(ForumSubscriptionForm, self).__init__(*args, **kwargs)
-        self.user = user
-        self.forum = forum
-        self.instance = instance
-
-        type_choices = list(ForumSubscription.TYPE_CHOICES)
-        if instance :
-            type_choices.append(
-                ('unsubscribe', _('be unsubscribe from this forum')))
-            type_initial = instance.type
-        else:
-            type_initial = ForumSubscription.TYPE_NOTIFY
-        self.fields['type'] = forms.ChoiceField(
-            label=_('You want to'), choices=type_choices, initial=type_initial,
-            widget=forms.RadioSelect())
-
-        topic_choices = (
-            ('new', _('only new topics')),
-            ('all', _('all topics of the forum')),
-        )
-        self.fields['topics'] = forms.ChoiceField(
-            label=_('Concerned topics'), choices=topic_choices,
-            initial=topic_choices[0][0], widget=forms.RadioSelect())
-
-    def process(self):
-        """
-        saves or deletes the ForumSubscription's instance
-        """
-        action = self.cleaned_data.get('type')
-        all_topics = self.cleaned_data.get('topics') == 'all'
-        if action == 'unsubscribe':
-            self.instance.delete(all_topics=all_topics)
-            return 'delete-all' if all_topics else 'delete'
-        else:
-            if not self.instance:
-                self.instance = ForumSubscription()
-                self.instance.user = self.user
-                self.instance.forum = self.forum
-            self.instance.type = int(self.cleaned_data.get('type'))
-            self.instance.save(all_topics=all_topics)
-            return 'subscribe-all' if all_topics else 'subscribe'
-
-
 class ModeratorForm(forms.Form):
 
     def __init__(self, user, *args, **kwargs):

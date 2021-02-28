@@ -20,10 +20,16 @@
                             and communicate together!
                         </p>
                     </div>
-
-                    <div class="col-lg-8 col-md-6 col-sm-12 signup-login">
-                        Start working out with others today! <a href="{% url 'account_signup' %}">Sign up</a> or <a href="{% url 'account_login' %}">Log In</a>!
-                    </div>
+                    {% if request.user.is_authenticated %}
+                        <div class="col-lg-8 col-md-6 col-sm-12 signup-login">
+                            Welcome to my site and thanks for logging in! You can check the Forum to chat with people, look at the recipes to get inspiration
+                            for meals and look at the programs to find a workout you want to do!
+                        </div>
+                    {% else %}
+                        <div class="col-lg-8 col-md-6 col-sm-12 signup-login">
+                            Start working out with others today! <a href="{% url 'account_signup' %}">Sign up</a> or <a href="{% url 'account_login' %}">Log In</a>!
+                        </div>
+                    {% endif %}
                 </div>
                 <div class="row">
                     <div class="col-lg-4 col-sm-12 featured-program">Featured Program</div>
