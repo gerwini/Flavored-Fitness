@@ -16,7 +16,7 @@ from django.utils.translation import ugettext as _
 
 from pybb import compat, defaults, util, permissions
 from pybb.models import Topic, Post, Attachment, PollAnswer, \
-    ForumSubscription, Category, Forum, create_or_check_slug
+    Category, Forum, create_or_check_slug
 
 
 User = compat.get_user_model()
