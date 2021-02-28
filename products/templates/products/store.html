@@ -70,7 +70,7 @@
                 </div>
                 <div class="row">
                     {% for product in products %}
-                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 product-bot">
                             <div class="card h-100 product-store">
                                 {% if product.image %}
                                 <a href="{% url 'product_info' product.id %}">
