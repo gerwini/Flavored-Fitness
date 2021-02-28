@@ -9,11 +9,11 @@ class Recipe(models.Model):  # The recipe model that appears in the admin
     rating = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
-    ingredients = ArrayField(
+    ingredients = ArrayField(  # Creates a field for admins to put in ingredients that will correctly display to the site
         models.TextField(max_length=99, blank=True),
         size=20, default=list
     )
-    preparation_steps = ArrayField(
+    preparation_steps = ArrayField(  # Creates a field for admins to put in preparation steps that will correctly display to the site
         models.TextField(max_length=99, blank=True),
         size=20, default=list
     )
