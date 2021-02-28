@@ -9,6 +9,7 @@ class RecipeAdmin(admin.ModelAdmin):
         'name',
         'rating',
         'image',
+        'ingredients'
     )
 
 
