@@ -52,7 +52,7 @@ def add_recipe(request):  # Lets the admins and superusers create new recipes
     return render(request, template, context)
 
 
-@login_required 
+@login_required
 def edit_recipe(request, recipe_id):  # Lets admins edit recipes
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
