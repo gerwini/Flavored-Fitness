@@ -7,7 +7,6 @@ from django.contrib.auth.decorators import login_required
 
 def view_recipes(request):  # Main Recipes page listing the recipes that are stored as models
     recipes = Recipe.objects.all()
-    print(recipes)
 
     context = {
         'recipes': recipes,
