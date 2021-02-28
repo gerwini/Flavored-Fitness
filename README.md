@@ -36,6 +36,9 @@ This project is made for people that love fitness but have none to talk to about
 ### Forum
 * As a user, I want to be able to interact with other users in an online Forum
 
+I had created a wireframe using "https://app.uxpin.com/" but unfortunately my free subscription 
+has ended and I would need to pay to get access to it again.
+
 
 ## Features
 
@@ -114,6 +117,18 @@ main nav bar not clickable causing me to have to add both bootstrap versions to 
 I am hosting my project on Heroku.
 * Heroku and gitpod first were using different databases but now are both using Postgres
 * Heroku and Gitpod use the same config variables to make the system work
+The config Variables used by Heroku are: 
+* AWS_ACCESS_KEY_ID
+* AWS_SECRET_ACCESS_KEY
+* DATABASE_URL
+* EMAIL_HOST_PASS
+* EMAIL_HOST_USER
+* SECRET_KEY
+* STRIPE_PUBLIC_KEY
+* STRIPE_SECRET_KEY
+* STRIPE_WH_SECRET
+* USE_AWS
+
 
 My static files are saved and moderated through AWS
 You can run my code by using the command "python3 manage.py runserver" in the terminal
