@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 
-class Program(models.Model):
+class Program(models.Model):  # Program model thats for the admin
     name = models.CharField(max_length=254)
     description = models.TextField()
     rating = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)

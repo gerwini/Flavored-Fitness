@@ -20,7 +20,7 @@
                         {% for program in programs %}
                             <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
                                 <div class="card h-100 border-0">
-                                    {% if program.image %}
+                                    {% if program.image %}  <!-- Lists all the programs to the users -->
                                     <a href="{% url 'program_info' program.id %}">
                                         <img class="card-img-top img-fluid" src="{{ program.image.url }}" alt="{{ program.name }}">
                                     </a>
@@ -35,7 +35,7 @@
                                     <div class="card-footer bg-white pt-0 border-0 text-left">
                                         <div class="row">
                                             <div class="col">
-                                                {% if program.rating %}
+                                                {% if program.rating %}  <!-- lists the info for programs to users -->
                                                     <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ program.rating }} / 5</small>
                                                 {% else %}
                                                     <small class="text-muted">No Rating</small>

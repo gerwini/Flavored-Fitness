@@ -3,7 +3,7 @@ from .widgets import CustomClearableFileInput
 from .models import Program
 
 
-class ProgramForm(forms.ModelForm):
+class ProgramForm(forms.ModelForm):  # Form for the programs
 
     class Meta:
         model = Program

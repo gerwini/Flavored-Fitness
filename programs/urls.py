@@ -2,7 +2,7 @@ from django.urls import path
 
 from . import views
 
-urlpatterns = [
+urlpatterns = [  # urls that lead to their respective views
     path('', views.view_programs, name='programs'),
     path('<int:program_id>', views.program_info, name='program_info'),
     path('add/', views.add_program, name='add_program'),

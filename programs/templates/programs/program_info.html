@@ -11,7 +11,7 @@
         <div class="row">
             <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
                 <div class="image-container my-5">
-                    {% if program.image %}
+                    {% if program.image %}  <!-- Lists information for individual programs -->
                         <a href="{{ program.image.url }}" target="_blank">
                             <img class="card-img-top img-fluid" src="{{ program.image.url }}" alt="{{ program.name }}">
                         </a>
@@ -25,7 +25,7 @@
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="program-details-container mb-5 mt-md-5">
                     <h2 class="mb-0">{{ program.name }}</h2>
-                    {% if request.user.is_superuser %}
+                    {% if request.user.is_superuser %}  <!-- lets admins edit and delete programs -->
                         <small class="ml-3">
                             <a href="{% url 'edit_program' program.id %}">Edit</a> | 
                             <a class="text-danger" href="{% url 'delete_program' program.id %}">Delete</a>

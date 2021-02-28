@@ -37,6 +37,8 @@ username_field = compat.get_username_field()
 Paginator, pure_pagination = compat.get_paginator_class()
 
 
+# A Lot of views that take care of the forum
+
 class PaginatorMixin(object):
     def get_paginator(self, queryset, per_page, orphans=0, allow_empty_first_page=True, **kwargs):
         kwargs = {}

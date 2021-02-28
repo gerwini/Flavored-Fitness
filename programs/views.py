@@ -5,7 +5,7 @@ from .forms import ProgramForm
 from django.contrib.auth.decorators import login_required
 
 
-def view_programs(request):
+def view_programs(request):  # View for people to view the programs
     """ A view to list all Programs """
 
     programs = Program.objects.all()
@@ -17,7 +17,7 @@ def view_programs(request):
     return render(request, 'programs/programs.html', context)
 
 
-def program_info(request, program_id):
+def program_info(request, program_id):  # View to view the program info
 
     programs = get_object_or_404(Program, pk=program_id)
 
@@ -29,7 +29,7 @@ def program_info(request, program_id):
 
 
 @login_required
-def add_program(request):
+def add_program(request):  # View for admins to add a program
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
@@ -54,7 +54,7 @@ def add_program(request):
 
 
 @login_required
-def edit_program(request, program_id):
+def edit_program(request, program_id):  # View for admins to edit programs
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
@@ -82,7 +82,7 @@ def edit_program(request, program_id):
 
 
 @login_required
-def delete_program(request, program_id):
+def delete_program(request, program_id):  # View for admins to delete programs
     """ Delete a program from the program List """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
