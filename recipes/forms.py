@@ -3,7 +3,7 @@ from .widgets import CustomClearableFileInput
 from .models import Recipe
 
 
-class RecipeForm(forms.ModelForm):
+class RecipeForm(forms.ModelForm):  # Form for adding and editing the model
 
     class Meta:
         model = Recipe

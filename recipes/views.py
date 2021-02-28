@@ -5,7 +5,7 @@ from .forms import RecipeForm
 from django.contrib.auth.decorators import login_required
 
 
-def view_recipes(request):
+def view_recipes(request):  # Main Recipes page listing the recipes that are stored as models
     recipes = Recipe.objects.all()
     print(recipes)
 
@@ -16,7 +16,7 @@ def view_recipes(request):
     return render(request, 'recipes/recipes.html', context)
 
 
-def recipe_info(request, recipe_id):
+def recipe_info(request, recipe_id):  # Lists the information of the recipe when clicked on
 
     recipes = get_object_or_404(Recipe, pk=recipe_id)
 
@@ -28,7 +28,7 @@ def recipe_info(request, recipe_id):
 
 
 @login_required
-def add_recipe(request):
+def add_recipe(request):  # Lets the admins and superusers create new recipes
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
@@ -52,8 +52,8 @@ def add_recipe(request):
     return render(request, template, context)
 
 
-@login_required
-def edit_recipe(request, recipe_id):
+@login_required 
+def edit_recipe(request, recipe_id):  # Lets admins edit recipes
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
@@ -81,7 +81,7 @@ def edit_recipe(request, recipe_id):
 
 
 @login_required
-def delete_recipe(request, recipe_id):
+def delete_recipe(request, recipe_id):  # Lets admins delete recipes in the list
     """ Delete a recipe from the Recipe List """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')

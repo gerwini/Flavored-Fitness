@@ -2,7 +2,7 @@ from django.urls import path
 
 from . import views
 
-urlpatterns = [
+urlpatterns = [  # Lists urls for their respective views
     path('', views.view_recipes, name='recipes'),
     path('<int:recipe_id>', views.recipe_info, name='recipe_info'),
     path('add/', views.add_recipe, name='add_recipe'),

@@ -17,10 +17,10 @@
         <div class="row">
             <div class="product-container col-10 offset-1">
                 <div class="row">
-                    {% for recipe in recipes %}
+                    {% for recipe in recipes %}  <!-- Lists the recipes that are in the recipes model -->
                         <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
                             <div class="card h-100 border-0">
-                                {% if recipe.image %}
+                                {% if recipe.image %}  <!-- Shows the recipes's images -->
                                 <a href="{% url 'recipe_info' recipe.id %}">
                                     <img class="card-img-top img-fluid" src="{{ recipe.image.url }}" alt="{{ recipe.name }}">
                                 </a>
@@ -35,7 +35,7 @@
                                 <div class="card-footer bg-white pt-0 border-0 text-left">
                                     <div class="row">
                                         <div class="col">
-                                            {% if request.user.is_superuser %}
+                                            {% if request.user.is_superuser %} <!-- lets admins edit and delete recipes -->
                                                 <small class="ml-3">
                                                     <a href="{% url 'edit_recipe' recipe.id %}">Edit</a> | 
                                                     <a class="text-danger" href="{% url 'delete_recipe' recipe.id %}">Delete</a>
@@ -46,7 +46,7 @@
                                 </div>
                             </div>
                         </div>
-                        {% if forloop.counter|divisibleby:1 %}
+                        {% if forloop.counter|divisibleby:1 %}  <!-- makes recipes show up in right divisions on screen -->
                             <div class="col-12 d-sm-none mb-5">
                                 <hr>
                             </div>
